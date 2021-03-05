@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const stripe = require('stripe')("sk_test_51HqI5CL1eOMA3nNTjtIjmvbXddtE4lpBVjTV09QTp4Wn8VaxCzBGGiPpJLoPnzLKUMT9uGcyskPSXgQ6KqcXHsY500v8nWK2c1");
+const stripe = require('stripe')("sk_test_51Hk4Y1IQ8MiZInN8AZWqvp1r7eGTf2RQHOvAb1hAI7Uh0FsHaJ9378vWNgzgB3RVqyuttW38XA6ZWagjGDZqqWB400oEWVGwEu");
 
 // - App config
 const app = express();
@@ -19,21 +19,21 @@ app.post("/payments/create", async (request, response) => {
   console.log(request.body);
   
   console.log("Payment Request Recieved BOOM!!! for this amount >>> ", total);
-
+  
   const paymentIntent = await stripe.paymentIntents.create({
     description: 'Items Purchased',
     shipping: {
-      name: 'Jenny Rosen',
+      name: 'Abhay Chauhan',
       address: {
-        line1: '510 Townsend St',
-        postal_code: '42424',
-        city: 'San Francisco',
-        state: 'CA',
-        country: 'US',
+        line1: 'MAIT',
+        postal_code: '110086',
+        city: 'Delhi',
+        state: 'Delhi',
+        country: 'IN',
       },
     },
     amount: total,
-    currency: 'usd',
+    currency: 'inr',
     payment_method_types: ['card']
   });
 
